@@ -8,6 +8,14 @@ require('dotenv').config();
 app.use(cors());
 app.use(express.json());
 
+
+//Port
+const PORT = process.env.PORT || 8000;
+//Database Connection
+mongoose.connect(process.env.DATABASE).then(() => {
+    console.log('Connected to the Database.');
+})
+
 const tourRoutes = require('./routes/tours/v1/tours.route');
 
 
@@ -15,6 +23,14 @@ const tourRoutes = require('./routes/tours/v1/tours.route');
 
 app.use('/api/v1/tours', tourRoutes);
 
+
+
+
+
+
+app.listen(PORT, () => {
+    console.log('Listening to Port', PORT);
+})
 
 
 
