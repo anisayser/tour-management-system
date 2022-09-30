@@ -6,9 +6,14 @@ const tourControllers = require('../../../controllers/tourController/tour.contro
 const routes = express.Router();
 
 
+routes.route('/cheapest').get(tourControllers.cheapestTour);
+routes.route('/trending').get(tourControllers.trendingTours)
 
-routes
-    .get('/', tourControllers.getAllTours)
-    .post('/', tourControllers.addTour)
+routes.route('/')
+    .get(tourControllers.getAllTours)
+    .post(tourControllers.addTour);
+
+
+routes.route('/:id').get(tourControllers.getATourById).patch(tourControllers.updateTourById)
 
 module.exports = routes;

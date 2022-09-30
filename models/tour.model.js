@@ -19,6 +19,10 @@ const tourSchema = mongoose.Schema({
         type: String,
         required: true,
         trim: true
+    },
+    views: {
+        type: Number,
+        default: 0
     }
 }, { timeStamps: true });
 
